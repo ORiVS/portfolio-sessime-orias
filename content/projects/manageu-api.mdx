@@ -22,7 +22,7 @@ L’écosystème comporte **trois produits** :
 
 **2) POS Web** (front restaurateur) pour les opérations en salle et le back-office.
 
-**3) API centrale Django REST** qui porte l’ensemble de la logique métier : comptes, restaurants, menu, marketplace fournisseurs, commandes, évènements, fidélité, etc. [oaicite:0]{index=0}
+**3) API centrale Django REST** qui porte l’ensemble de la logique métier : comptes, restaurants, menu, marketplace fournisseurs, commandes, évènements, fidélité, etc.
 
 **Backend :** https://github.com/ORiVS/Vegnbio
 
@@ -46,9 +46,7 @@ L’écosystème comporte **trois produits** :
 
 **POS** déployé sur **Vercel**.
 
-**Mobile Android** packagé en **.aab** (format Play Store). :contentReference[oaicite:1]{index=1}
-
-
+**Mobile Android** packagé en **.aab** (format Play Store). 
 **Approche backend : multi-apps (modulaire)**
 
 Le backend est structuré en **apps Django séparées par domaine**, ce qui permet une architecture propre, lisible et scalable.
@@ -69,7 +67,7 @@ Le mobile est conçu avec une structure orientée **robustesse produit** :
 
 **Guards globaux : auth + rôle (garde de routes)**
 
-**Interceptors : injection JWT, refresh automatique, retry** :contentReference[oaicite:3]{index=3}
+**Interceptors : injection JWT, refresh automatique, retry** 
 
 
 **Approche POS : front restaurateur**
@@ -86,7 +84,7 @@ Le POS (React/Next.js) vise un usage “terrain” :
 
 **Back-office restaurateur**
 
-Déployé sur **Vercel**, connecté à l’API centralisée. :contentReference[oaicite:4]{index=4}
+Déployé sur **Vercel**, connecté à l’API centralisée. 
 
 
 **Vegbot (Chatbot / LLM)**
@@ -104,7 +102,7 @@ Modèle utilisateur : **CustomUser** (email/password) + **role** parmi :
 
 **CLIENT**, **FOURNISSEUR**, **RESTAURATEUR**, **ADMIN**
 
-+ **UserProfile** pour les infos métier (coordonnées, allergies côté client, infos entreprise côté fournisseur, infos restaurant côté restaurateur). :contentReference[oaicite:6]{index=6}
++ **UserProfile** pour les infos métier (coordonnées, allergies côté client, infos entreprise côté fournisseur, infos restaurant côté restaurateur). 
 
 
 **JWT (SimpleJWT)**
@@ -123,4 +121,4 @@ Modèle utilisateur : **CustomUser** (email/password) + **role** parmi :
 
 **Déployer proprement** un système multi-clients (Render + Vercel + CORS maîtrisé).
 
-**Intégrer un composant LLM** configurable (Ollama/HF) pour un chatbot métier sans verrouiller l’architecture. :contentReference[oaicite:10]{index=10}
+**Intégrer un composant LLM** configurable (Ollama/HF) pour un chatbot métier sans verrouiller l’architecture. 
