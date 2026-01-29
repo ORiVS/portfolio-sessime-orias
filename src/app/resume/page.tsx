@@ -295,7 +295,7 @@ export default function ResumePage() {
                             </a>
 
                             <a
-                                href="https://sessimeorias.vercel.app"
+                                href="https://sessime-orias.vercel.app/"
                                 target="_blank"
                                 rel="noreferrer"
                                 className="flex items-center hover:text-primary transition-colors"
