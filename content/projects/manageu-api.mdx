@@ -1,0 +1,126 @@
+---
+
+title: "Veg’N Bio – Digitalisation Restaurant (API + Mobile + POS)"
+description: "Plateforme B2B2C pour digitaliser un restaurant : app mobile (clients & fournisseurs), POS web restaurateur, API Django centralisée, chatbot Vegbot."
+date: "2024-11-01"
+published: true
+tags: ["Django", "Python", "Flutter", "Next.js", "PostgreSQL", "JWT", "LLM"]
+repository: "https://github.com/ORiVS/Vegnbio"
+
+stack: ["Django REST Framework", "PostgreSQL", "SimpleJWT", "Flutter (Riverpod/Dio)", "Next.js/React (POS)", "Render", "Vercel"]
+featured: true
+
+---
+
+# Contexte
+
+**Veg’N Bio** est un projet de **digitalisation complète d’un restaurant**, pensé comme une plateforme **B2B2C**.
+
+L’écosystème comporte **trois produits** :
+
+**1) App mobile Flutter** pour **clients** et **fournisseurs** avec des espaces séparés.
+
+**2) POS Web** (front restaurateur) pour les opérations en salle et le back-office.
+
+**3) API centrale Django REST** qui porte l’ensemble de la logique métier : comptes, restaurants, menu, marketplace fournisseurs, commandes, évènements, fidélité, etc. :contentReference[oaicite:0]{index=0}
+
+**Backend :** https://github.com/ORiVS/Vegnbio
+
+**Mobile :** https://github.com/ORiVS/Vegnbio_mobile
+
+**POS Web :** https://github.com/ORiVS/Vegnbio-POS
+
+# Architecture
+
+**Architecture globale**
+
+**Mobile (Flutter)** ↔ **API REST (Django/DRF + JWT)**
+
+**POS Web (React/Next.js)** ↔ **API REST (Django/DRF + JWT)**
+
+**Base de données : PostgreSQL**
+
+**Déploiement :**
+
+**API** déployée sur **Render** avec **CORS configuré** pour autoriser le domaine du POS.
+
+**POS** déployé sur **Vercel**.
+
+**Mobile Android** packagé en **.aab** (format Play Store). :contentReference[oaicite:1]{index=1}
+
+
+**Approche backend : multi-apps (modulaire)**
+
+Le backend est structuré en **apps Django séparées par domaine**, ce qui permet une architecture propre, lisible et scalable.
+
+
+
+**Approche front mobile : séparation des responsabilités**
+
+Le mobile est conçu avec une structure orientée **robustesse produit** :
+
+**State management : Riverpod**
+
+**HTTP : Dio**
+
+**Tokens : shared_preferences**
+
+**Gestion d’erreurs : mapping DRF → messages lisibles**
+
+**Guards globaux : auth + rôle (garde de routes)**
+
+**Interceptors : injection JWT, refresh automatique, retry** :contentReference[oaicite:3]{index=3}
+
+
+**Approche POS : front restaurateur**
+
+Le POS (React/Next.js) vise un usage “terrain” :
+
+**Dashboard**
+
+**Réservations**
+
+**Évènements**
+
+**Gestion du menu**
+
+**Back-office restaurateur**
+
+Déployé sur **Vercel**, connecté à l’API centralisée. :contentReference[oaicite:4]{index=4}
+
+
+**Vegbot (Chatbot / LLM)**
+
+Le projet intègre un chatbot nommé **Vegbot**, avec configuration **multi-backends** pilotée par variables d’environnement :
+
+**OLLAMA** (local)
+
+
+# Sécurité & Données métier
+
+**Authentification & rôles**
+
+Modèle utilisateur : **CustomUser** (email/password) + **role** parmi :
+
+**CLIENT**, **FOURNISSEUR**, **RESTAURATEUR**, **ADMIN**
+
++ **UserProfile** pour les infos métier (coordonnées, allergies côté client, infos entreprise côté fournisseur, infos restaurant côté restaurateur). :contentReference[oaicite:6]{index=6}
+
+
+**JWT (SimpleJWT)**
+
+
+
+# Ce que j'ai appris
+
+**Concevoir une plateforme multi-produits** autour d’une API centrale (mobile + POS sur la même base).
+
+**Structurer un backend Django en multi-apps** avec des règles métier strictes et évolutives.
+
+**Mettre en place une authentification JWT robuste** (access/refresh + refresh automatique côté client).
+
+**Construire une UX mobile solide** : guards, interceptors, erreurs compréhensibles, écrans privés gérés proprement.
+
+**Déployer proprement** un système multi-clients (Render + Vercel + CORS maîtrisé).
+
+**Intégrer un composant LLM** configurable (Ollama/HF) pour un chatbot métier sans verrouiller l’architecture. :contentReference[oaicite:10]{index=10}

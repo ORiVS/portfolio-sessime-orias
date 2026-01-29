@@ -1,0 +1,91 @@
+---
+
+title: "ESGIX – Mini Twitter Mobile"
+description: "Application mobile Flutter type Twitter connectée à une API tierce : posts, likes, commentaires, profils, recherche avec debouncing et authentification sécurisée."
+date: "2024-03-01"
+published: true
+tags: ["Flutter", "API REST", "JWT", "BLoC", "Mobile"]
+repository: "https://github.com/ORiVS/esgix"
+
+stack: ["Flutter", "BLoC", "API REST", "JWT", "Debounced Search"]
+featured: true
+
+---
+
+# Contexte
+
+**ESGIX** est une application mobile **Twitter-like** développée en Flutter et connectée à une **API REST tierce**.
+
+L’objectif du projet était de construire une **application mobile complète orientée produit**, capable de gérer :
+
+- **Authentification sécurisée**
+- **Création et affichage de posts**
+- **Likes et commentaires**
+- **Profils utilisateurs**
+- **Recherche avancée avec debouncing**
+
+Ce projet met l’accent sur la **qualité de l’architecture mobile**, la **gestion d’état**, et la **communication propre avec une API externe**.
+
+**Repository :** https://github.com/ORiVS/esgix  
+
+# Architecture
+
+- **Architecture Flutter basée sur BLoC**
+
+  L’application est construite autour du **pattern BLoC (Business Logic Component)** afin de :
+
+  - Séparer clairement **UI / logique métier / accès API**
+  - Centraliser la **gestion des états**
+  - Rendre l’application **prévisible, testable et maintenable**
+
+- **Séparation claire des couches**
+
+  - **Presentation (UI)** : écrans, widgets, navigation  
+  - **Business Logic (BLoC)** : gestion des events, states et transitions  
+  - **Data Layer** : appels API, parsing JSON, gestion des tokens  
+
+- **Communication avec API REST tierce**
+
+  Toute l’application repose sur une **API distante** pour :
+
+  - Authentification
+  - Récupération des posts
+  - Gestion des likes et commentaires
+  - Profils utilisateurs
+  - Recherche
+
+# Sécurité & Authentification
+
+L’application intègre une **authentification en deux niveaux** :
+
+- **API Key** pour identifier l’application cliente.
+- **JWT** pour sécuriser les sessions utilisateurs.
+
+Fonctionnement :
+
+- Login → récupération du token JWT
+- Stockage sécurisé du token
+- Injection automatique du token dans les requêtes HTTP
+- Protection de toutes les routes nécessitant une session active
+
+# Fonctionnalités avancées
+
+- **Système de posts complet** : affichage, interaction, profils.
+- **Likes et commentaires** en temps réel via API.
+- **Recherche avec debouncing** :
+
+  - Évite d’envoyer une requête API à chaque frappe clavier.
+  - Attend un court délai avant de déclencher la recherche.
+  - Améliore fortement les **performances et l’expérience utilisateur**.
+
+- **UI moderne et responsive**, pensée pour une utilisation mobile fluide.
+
+# Ce que j'ai appris
+
+- **Construire une application Flutter robuste** avec une vraie architecture BLoC.
+- **Gérer proprement l’état d’une application mobile** complexe.
+- **Consommer une API REST tierce** de manière sécurisée et structurée.
+- **Implémenter une recherche performante** avec debouncing.
+- **Mettre en place une authentification JWT complète** dans une application mobile.
+- **Structurer un projet mobile professionnel** prêt pour l’évolutivité.
+

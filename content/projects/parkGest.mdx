@@ -1,0 +1,107 @@
+---
+
+title: "Groupe – Application de gestion de parking"
+description: "Application web collaborative en Java Spring Boot pour la réservation de parkings avec authentification, agenda, dashboard admin et logs de connexion."
+date: "2024-02-01"
+published: true
+tags: ["Java", "Spring Boot", "PostgreSQL", "Web App", "Backend"]
+repository: "https://github.com/ClementCNR/Groupe"
+
+stack: ["Java", "Spring Boot", "PostgreSQL", "Spring Security"]
+featured: true
+
+---
+
+# Contexte
+
+**Groupe** est une application web développée en **équipe** pour répondre à un besoin concret d’**entreprise** :  
+**gérer la réservation de places de parking** pour des employés ou des utilisateurs internes.
+
+L’objectif était de concevoir une **application métier complète** avec :
+
+- **Authentification des utilisateurs**
+- **Système de réservation de parking**
+- **Agenda dynamique**
+- **Dashboard administrateur**
+- **Historique et logs de connexion**
+
+**Repository :** https://github.com/ClementCNR/Groupe  
+
+# Architecture
+
+- **Architecture backend en Spring Boot**
+
+  L’application est construite sur une **architecture Spring Boot classique et robuste** :
+
+  - **Controllers** pour exposer les routes web
+  - **Services** pour encapsuler la logique métier
+  - **Repositories (JPA/Hibernate)** pour l’accès aux données
+  - **Entities** pour la modélisation métier (User, Reservation, Parking, etc.)
+
+  Cette séparation permet une **bonne maintenabilité** et une **évolution simple du projet**.
+
+- **Base de données PostgreSQL**
+
+  Toutes les données sont stockées dans **PostgreSQL** :
+
+  - Utilisateurs
+  - Réservations
+  - Parkings
+  - Logs de connexion
+  - Événements d’agenda
+
+- **Application web monolithique structurée**
+
+  Le frontend est directement servi par Spring (rendu serveur), ce qui permet :
+
+  - Une **intégration simple et robuste**
+  - Un **contrôle total sur la sécurité et les accès**
+  - Un **déploiement unifié**
+
+# Sécurité & Gestion des accès
+
+- **Système d’authentification complet**
+
+  - Connexion par identifiants
+  - Sessions sécurisées
+  - Protection des pages sensibles
+
+- **Gestion des rôles**
+
+  - Utilisateurs classiques
+  - Administrateurs avec accès au **dashboard de gestion**
+
+- **Logs de connexion**
+
+  - Chaque connexion est enregistrée
+  - Permet de suivre l’activité et d’auditer l’utilisation de la plateforme
+
+# Fonctionnalités métier
+
+- **Réservation de places de parking**
+
+  - Choix d’une date / plage horaire
+  - Vérification de disponibilité
+  - Empêche les conflits de réservation
+
+- **Agenda dynamique**
+
+  - Visualisation des réservations
+  - Vue planning pour anticiper l’occupation
+
+- **Dashboard administrateur**
+
+  - Gestion des utilisateurs
+  - Gestion des parkings
+  - Supervision des réservations
+  - Accès aux logs
+
+# Ce que j'ai appris
+
+- **Travailler sur une application métier en équipe** avec une vraie logique d’entreprise.
+- **Structurer un projet Java Spring Boot proprement** (Controller / Service / Repository).
+- **Concevoir un système de réservation avec contraintes de disponibilité**.
+- **Mettre en place une authentification et une gestion des rôles**.
+- **Utiliser PostgreSQL dans un projet backend réel**.
+- **Construire une application web complète de bout en bout** avec Java.
+

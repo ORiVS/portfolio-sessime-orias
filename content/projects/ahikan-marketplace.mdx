@@ -1,0 +1,36 @@
+---
+
+title: "AHIKAN - Marketplace Mobile"
+description: "Application mobile e-commerce dédiée au marché béninois avec paiement sécurisé et logistique intégrée."
+date: "2023-08-15"
+published: true
+tags: ["Flutter", "Django", "PostgreSQL", "Mobile"]
+repository: "https://github.com/OrviS"
+demo: "https://play.google.com/store/apps/details?id=com.ahikan"
+stack: ["Flutter", "Django REST Framework", "PostgreSQL", "Firebase"]
+featured: true
+---
+
+# Contexte
+AHIKAN est une réponse au manque de plateformes e-commerce adaptées aux réalités locales du Bénin (paiement mobile money, logistique informelle). L'objectif était de créer une application mobile fluide permettant aux vendeurs de gérer leur boutique et aux clients de commander facilement.
+
+# Architecture & Stack
+L'application repose sur une architecture client-serveur classique mais robuste :
+- **Mobile (Flutter)** : Pour une expérience native unique sur iOS et Android.
+- **Backend (Django REST Framework)** : Choisi pour sa rapidité de développement (Admin panel gratuit) et sa sécurité (Auth, Permissions).
+- **Base de données (PostgreSQL)** : Pour gérer les relations complexes entre produits, commandes, et vendeurs.
+
+# Challenges & Solutions
+
+### 1. Gestion du réseau instable
+Au Bénin, la connexion internet peut être capricieuse.
+**Solution** : Implémentation d'un cache local avec `Hive` (NoSQL mobile) et d'une synchronisation en arrière-plan.
+
+### 2. Recherche performante
+Avec des milliers de produits, la recherche devait être instantanée.
+**Solution** : Utilisation des index `Trigram` de PostgreSQL pour la recherche floue (fuzzy search) sans avoir besoin d'ElasticSearch (trop lourd).
+
+# Résultats
+- **+500 produits** référencés en 2 mois.
+- **Temps de chargement** réduit de 50% grâce au cache.
+- **Déploiement** automatisé sur le Play Store via GitHub Actions.

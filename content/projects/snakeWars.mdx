@@ -1,0 +1,92 @@
+---
+
+title: "SnakeWars – Jeu Snake avec IA (Reinforcement Learning)"
+description: "Jeu Snake développé en Python avec un agent entraîné par apprentissage par renforcement, visualisation des performances et démonstration académique en IA."
+date: "2024-04-01"
+published: true
+tags: ["Python", "IA", "Reinforcement Learning", "PyGame", "Machine Learning"]
+repository: "https://github.com/LucasParchap/SnakeWars"
+
+stack: ["Python", "Reinforcement Learning", "PyGame", "Numpy", "Custom Training Loop"]
+featured: true
+
+---
+
+# Contexte
+
+**SnakeWars** est un projet académique développé dans le cadre de l’ESGI visant à **démontrer concrètement le fonctionnement de l’apprentissage par renforcement** à travers un jeu Snake contrôlé par une intelligence artificielle.
+
+L’objectif n’était pas seulement de créer un jeu, mais de :
+
+- **Implémenter un agent intelligent** capable d’apprendre par essai/erreur.
+- **Visualiser l’évolution de ses performances** au fil des entraînements.
+- **Présenter une démonstration pédagogique** du Reinforcement Learning.
+
+**Repository :** https://github.com/LucasParchap/SnakeWars  
+
+# Architecture
+
+- **Architecture orientée IA / Simulation**
+
+  Le projet est structuré autour de plusieurs blocs logiques :
+
+  - **Environnement de jeu (Snake)** : règles, collisions, score, état du jeu.
+  - **Agent IA** : décide des actions à partir de l’état courant.
+  - **Boucle d’entraînement (Training Loop)** :  
+    - Observe l’état  
+    - Choisit une action  
+    - Reçoit une récompense  
+    - Met à jour sa politique de décision
+
+- **Séparation claire des responsabilités**
+
+  - **Game Engine (PyGame)** : affichage, rendu, interactions visuelles.
+  - **Logique IA** : apprentissage, stratégie, exploration / exploitation.
+  - **Système de métriques** : suivi des scores, progression et performances.
+
+# Intelligence Artificielle & Apprentissage
+
+- **Apprentissage par renforcement (Reinforcement Learning)**
+
+  L’agent apprend :
+
+  - Sans données pré-annotées
+  - Uniquement via un **système de récompenses / pénalités**
+  - En améliorant progressivement sa stratégie pour :
+    - Survivre plus longtemps
+    - Manger plus de nourriture
+    - Éviter les collisions
+
+- **Concepts clés implémentés**
+
+  - **États** : position du snake, direction, nourriture, dangers.
+  - **Actions** : tourner à gauche, à droite, continuer tout droit.
+  - **Récompenses** :
+    - Positive quand le snake mange
+    - Négative quand il meurt
+    - Faible pénalité pour forcer l’optimisation
+
+- **Visualisation des performances**
+
+  - Affichage des scores
+  - Observation directe de l’amélioration du comportement de l’agent
+  - Permet de **voir l’IA devenir progressivement plus efficace**
+
+# Interface & Expérience
+
+- **Interface PyGame simple et efficace**
+
+  - Rendu graphique du jeu
+  - Affichage du score
+  - Possibilité de lancer / observer des sessions d’entraînement
+  - Mode démonstration pour présentation académique
+
+# Ce que j'ai appris
+
+- **Comprendre concrètement le Reinforcement Learning** au-delà de la théorie.
+- **Implémenter un agent intelligent from scratch** sans framework magique.
+- **Structurer un projet IA** avec environnement, agent et boucle d’entraînement.
+- **Traduire un problème réel en états, actions et récompenses**.
+- **Visualiser et interpréter les performances d’un modèle**.
+- **Présenter un projet IA de manière pédagogique et démonstrative**.
+

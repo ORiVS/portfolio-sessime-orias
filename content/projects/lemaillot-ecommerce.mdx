@@ -1,0 +1,80 @@
+---
+
+title: "LeMaillot – Application E-commerce Mobile"
+description: "Backend Django + application Flutter pour une boutique de maillots : catalogue, panier, commandes et paiement simulé via Stripe."
+date: "2024-01-20"
+published: true
+tags: ["Django", "Python", "Flutter", "Stripe", "API"]
+repository: "https://github.com/ORiVS/leMaillotApi"
+
+stack: ["Django REST Framework", "PostgreSQL", "Flutter", "Stripe", "JWT"]
+featured: true
+
+---
+
+# Contexte
+
+**LeMaillot** est une application **e-commerce complète** permettant à des utilisateurs de **parcourir un catalogue de maillots de football**, d’**ajouter des produits au panier** et de **passer commande** via une application mobile Flutter.
+
+Le projet consistait à concevoir :
+
+- **Une application mobile Flutter** pour l’expérience utilisateur.
+
+- **Une API backend robuste en Django/Python** pour gérer toute la logique métier (utilisateurs, produits, panier, commandes, paiement).
+
+**Backend :** https://github.com/ORiVS/leMaillotApi  
+
+**Frontend :** https://github.com/ORiVS/lemaillot_mobile  
+
+# Architecture
+
+- **API REST modulaire**  
+
+  Le backend est structuré en **plusieurs apps Django séparées par domaine métier** (accounts, products, cart, orders, payments, vendors, etc.), ce qui permet une **architecture claire, maintenable et évolutive**.
+
+- **Séparation Frontend / Backend**  
+
+  L’application mobile Flutter **consomme exclusivement l’API** via des endpoints REST, ce qui permet :
+
+  - **Une indépendance totale** entre le mobile et le serveur  
+
+  - **Une possibilité future** d’ajouter un site web ou d’autres clients
+
+- **Architecture mobile structurée**  
+
+  Le frontend Flutter est organisé par **écrans, modèles et logique métier**, avec une approche de **gestion d’état inspirée du pattern Bloc** et une **séparation claire des responsabilités** (UI, logique, accès API).
+
+# Sécurité & Paiement
+
+L’application reproduit le fonctionnement d’un **vrai site e-commerce**, avec une attention particulière portée à la **sécurité**.
+
+- **Authentification JWT** pour sécuriser toutes les routes sensibles.
+
+- **Gestion des utilisateurs et de leurs permissions**.
+
+- **Simulation de paiement via Stripe** pour reproduire un vrai workflow de commande.
+
+- **Mise en place d’endpoints backend** pour gérer :
+
+  - **La création de commandes**
+
+  - **La validation du paiement**
+
+  - **La mise à jour de l’état des commandes**
+
+Même si le paiement est **simulé dans le cadre du projet**, toute l’architecture est pensée comme pour une **application de production**.
+
+# Ce que j'ai appris
+
+- **Concevoir une architecture backend complète** pour une application e-commerce réelle.
+
+- **Structurer une API Django REST** propre, modulaire et scalable.
+
+- **Gérer toute la logique métier** d’un e-commerce : produits, panier, commandes, utilisateurs.
+
+- **Mettre en place un workflow de paiement (Stripe)** et comprendre ses enjeux techniques.
+
+- **Construire une application Flutter connectée à une API** et gérer les états de l’interface.
+
+- **Travailler sur un projet full-stack de bout en bout**, de l’architecture jusqu’à l’expérience utilisateur.
+
